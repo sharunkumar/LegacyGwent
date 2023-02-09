@@ -121,6 +121,34 @@ namespace Cynthia.Card.Server
             return result;
         }
 
+        public bool JoinViewList(string connectionId, string roomId)
+        {
+            if (!_users.ContainsKey(connectionId))
+                return false;
+            var user = _users[connectionId];
+            if (user.UserState != UserState.Standby)
+                return false;
+            if (!_gwentMatchs.JoinViewList(user, roomId))
+                return false;
+            user.UserState = UserState.Viewing;
+            InovkeUserChanged();
+            return true;
+        }
+
+        public bool LeaveViewList(string connectionId, string roomId = "")
+        {
+            if (!_users.ContainsKey(connectionId))
+                return false;
+            var user = _users[connectionId];
+            if (user.UserState != UserState.Viewing)
+                return false;
+            if (!_gwentMatchs.LeaveViewList(user, roomId))
+                return false;
+            user.UserState = UserState.Standby;
+            InovkeUserChanged();
+            return true;
+        }
+
         public bool AddDeck(string connectionId, DeckModel deck)
         {
             //添加卡组
@@ -200,6 +228,10 @@ namespace Cynthia.Card.Server
             {
                 _gwentMatchs.PlayerLeave(connectionId, exception);
             }
+            if (_users[connectionId].UserState == UserState.Viewing)//如果用户正在观战
+            {
+                _gwentMatchs.LeaveViewList(_users[connectionId], "");
+            }
             _users.Remove(connectionId);
             InovkeUserChanged();
         }
@@ -227,6 +259,29 @@ ai密码后缀#f(如ai#f)即可强制挑战ai,不会进行玩家匹配
 2. 游戏中有可能断线、更新内容
 3. 全部更新内容请参照https://shimo.im/docs/TQdjjwpPwd9hJhK
     （群公告中可直接点开链接）
+
+2023年2月6日更新
+卡牌调整：
+伊勒瑞斯：临终之日~决斗仅生效3次
+斯崔葛布~添加力竭
+亚伯力奇~添加力竭
+希拉德~添加力竭
+安德莱格虫卵~本体改为3点召唤1张同名牌，衍生物为5点和7点
+拉多维德~伤害4->5
+亚托列司·薇歌~战力11->9
+
+卡牌替换：
+解梦术替换为神灯
+
+新卡：
+神灯~中立金，对局开始时，将3张“最后的愿望”加入卡组，随后丢弃自身
+疯狂的冲锋~北方铜，使1个受护甲保护的友军单位与1个敌军单位对决
+
+功能性调整：
+为所有无计数器的力竭牌，添加一个计数为1的计数器
+
+描述修正：
+假死、烟火技师、阻魔金镣铐
 
 2022年1月24日更新
 删除雷蒂娅的晋升效果。雷蒂娅将重做。晋升卡可能会在以后以其他方式回归。
@@ -376,6 +431,13 @@ may come back in the future.
         {
             var list = _gwentMatchs.GwentRooms.Where(x => x.IsReady && x.Player1 is ClientPlayer && x.Player2 is ClientPlayer).Select(x => (x.Player1.PlayerName, x.Player2.PlayerName)).ToList();
             var aiList = _gwentMatchs.GwentRooms.Where(x => x.IsReady && (x.Player1 is AIPlayer || x.Player2 is AIPlayer)).Select(x => (x.Player1.PlayerName, x.Player2.PlayerName)).ToList();
+            return (_users.Select(x => x.Value).Where(x => x.UserState != UserState.Play && x.UserState != UserState.PlayWithAI).GroupBy(x => x.UserState).ToList(), list, aiList);
+        }
+
+        public (IList<IGrouping<UserState, User>>, IList<(string, string, string)>, IList<(string, string, string)>) GetUsersWithRoomId()
+        {
+            var list = _gwentMatchs.GwentRooms.Where(x => x.IsReady && x.Player1 is ClientPlayer && x.Player2 is ClientPlayer).Select(x => (x.Player1.PlayerName, x.Player2.PlayerName, x.RoomId)).ToList();
+            var aiList = _gwentMatchs.GwentRooms.Where(x => x.IsReady && (x.Player1 is AIPlayer || x.Player2 is AIPlayer)).Select(x => (x.Player1.PlayerName, x.Player2.PlayerName, x.RoomId)).ToList();
             return (_users.Select(x => x.Value).Where(x => x.UserState != UserState.Play && x.UserState != UserState.PlayWithAI).GroupBy(x => x.UserState).ToList(), list, aiList);
         }
 

@@ -473,7 +473,7 @@
         },
         "13007": {
             "Name": "Stregobor",
-            "Info": "Deploy, Truce: Each player draws a unit and sets its power to 1.",
+            "Info": "Single-Use. Deploy, Truce: Each player draws a unit and sets its power to 1.",
             "Flavor": "猎魔人见过看上去像议员的贼，见过看上去像乞丐的议员，也见过看上去像贼的国王。不过斯崔葛布的样子，就和大众心目中法师的形象没什么两样。"
         },
         "13008": {
@@ -538,7 +538,7 @@
         },
         "13001": {
             "Name": "Roach",
-            "Info": "Whenever you play a Gold unit from your hand, Summon this unit to a random row.",
+            "Info": "Whenever you play a Gold unit, Summon this unit to a random row.",
             "Flavor": "杰洛特，我们得来场人马间的对话。恕我直言，你的骑术……真的有待提高，伙计。"
         },
         "13019": {
@@ -763,7 +763,7 @@
         },
         "14020": {
             "Name": "Mahakam Ale",
-            "Info": "Deploy: Boost a random ally on each row by 4.",
+            "Info": "Boost a random ally on each row by 4.",
             "Flavor": "无可争议是矮人们对世界文化所作出的最杰出贡献。"
         },
         "14021": {
@@ -943,7 +943,7 @@
         },
         "22009": {
             "Name": "Imlerith: Sabbath",
-            "Info": "Every turn, on turn end, Duel the Highest enemy. If this unit survives, Heal it by 2 and give it 2 Armor. 2 Armor.",
+            "Info": "Every turn, on turn end, Duel the Highest enemy. If this unit survives, Heal it by 2 and give it 2 Armor. 2 Armor. Repeat up to 2 times.",
             "Flavor": "老巫妪说过你会来。她们在水面上预见了你的到来。"
         },
         "22010": {
@@ -1188,7 +1188,7 @@
         },
         "24022": {
             "Name": "Vran Warrior",
-            "Info": "Deploy: Consume the Unit to the right. Every 2 turns, at the start of your turn, Consume the Unit to the right.",
+            "Info": "Deploy: Consume the unit to the right and boost self by its power. Every 2 turns, on turn start, repeat its deploy ability.",
             "Flavor": "他们静静地骑在马上，看起来很放松，但全副武装：宽头短矛、剑柄独特的剑、战斧以及锯齿长斧。"
         },
         "24023": {
@@ -1218,7 +1218,7 @@
         },
         "24028": {
             "Name": "Foglet",
-            "Info": "Whenever you apply Fog to an enemy row, Summon a copy of this unit from your deck.",
+            "Info": "Whenever you apply Fog to an enemy row, Summon a copy of this unit from your deck to the oppoite row.",
             "Flavor": "浓雾悄然弥漫时，小雾妖便会出没，来享用它们的受害者。"
         },
         "24029": {
@@ -1363,7 +1363,7 @@
         },
         "32007": {
             "Name": "Shilard",
-            "Info": "Deploy, Truce: Draw a card from both decks. Keep one and give the other to your opponent.",
+            "Info": "Single-Use. Deploy, Truce: Draw a card from both decks. Keep one and give the other to your opponent.",
             "Flavor": "所谓外交官，就是用华丽的辞藻，来透露一些只言片语。"
         },
         "32008": {
@@ -1428,7 +1428,7 @@
         },
         "33006": {
             "Name": "Albrich",
-            "Info": "Deploy, Truce: Each player draws a card. The opponent's card is Revealed.",
+            "Info": "Single-Use. Deploy, Truce: Each player draws a card. The opponent's card is Revealed.",
             "Flavor": "火球？没问题。陛下想要什么都行。"
         },
         "33007": {
@@ -1503,7 +1503,7 @@
         },
         "33019": {
             "Name": "Dazhbog Runestone",
-            "Info": "Create and play a Bronze Nilfgaard card.",
+            "Info": "Create and play a Bronze or Silver Nilfgaard card.",
             "Flavor": "当心。还烫着呢。"
         },
         "33020": {
@@ -1703,7 +1703,7 @@
         },
         "41001": {
             "Name": "King Radovid V",
-            "Info": "Deploy: Toggle 2 units' Lock statuses. If enemies, deal 4 damage to them. Crew.",
+            "Info": "Deploy: Toggle 2 units' Lock statuses. If enemies, deal 5 damage to them. Crew.",
             "Flavor": "身为国王，对待敌人应冷酷无情，对待朋友当慷慨大度。"
         },
         "41002": {
@@ -2248,7 +2248,7 @@
         },
         "53018": {
             "Name": "Morana Runestone",
-            "Info": "Create and play a bronze Scoia'tael card.",
+            "Info": "Create and play a Bronze or Silver Scoia'tael card.",
             "Flavor": "一看到它我就头晕……"
         },
         "53019": {
@@ -3006,6 +3006,11 @@
             "Info": "On round end, deal 3 damage to the weakest enemy unit, then deal 3 damage to self.",
             "Flavor": ""
         },
+        "70050": {
+            "Name": "MadCharge",
+            "Info": "Choose an ally that has Armor , Duel an enemy.",
+            "Flavor": ""
+        },
         "70054": {
             "Name": "Feign Death",
             "Info": "Resurrect 2 bronze units with power higher than 5 points, and deal 4 damage to each of them.",
@@ -3013,7 +3018,7 @@
         },
         "70058": {
             "Name": "Cave Troll",
-            "Info": "Gain 4 points, and then boost an enemy by 4 points.",
+            "Info": "Deploy: Boost self by 4, and then boost an enemy by 4 points.",
             "Flavor": ""
         },
         "70059": {
@@ -3043,7 +3048,7 @@
         },
         "70076": {
             "Name": "Congregation Cleric",
-            "Info": "Generate copies of all locked bronze, and set the strength of copes to 2. Whenever any bronze unit are locked during your turn, generate a copy of it with 2 strength in the same row.",
+            "Info": "Generate copies of all locked bronze, and set the strength of copies to 2. Whenever any bronze unit are locked during your turn, generate a copy of it with 2 strength in the same row.",
             "Flavor": "“靠近点，羔羊，再近点。愿永恒之火温暖你的灵魂！”"
         },
         "70077": {
@@ -3057,8 +3062,8 @@
             "Flavor": "“呛死我了！就不能去别的地方烧吗？”"
         },
         "70091": {
-            "Name": "Oneiromancy",
-            "Info": "Choose one: create 1 non-spy and non-doom card in your starting deck; or turn 3 random hand cards (not the same name) into 'Oneiromancy'.",
+            "Name": "Magic Lamp",
+            "Info": "At the start of the game, add 3 The Last Wishes to your deck ,then Discard self.",
             "Flavor": "破译梦境中的过去和未来是非常困难的，即使对大师也是如此。"
         },
         "70102": {
@@ -3067,8 +3072,8 @@
             "Flavor": ""
         },
         "70103": {
-            "Name": "Artorius·Vigo",
-            "Info": "Discard a card, add a Bronze unit card from your start deck to your hand, and then reveal it.",
+            "Name": "Artorius Vigo",
+            "Info": "Deploy: Discard a card, add a Bronze unit card from your start deck to your hand, and then reveal it.",
             "Flavor": "“据说他创造出的幻象栩栩如生，连他自己都开始信了……”"
         },
         "70104": {
@@ -3078,12 +3083,12 @@
         },
         "70105": {
             "Name": "Adalbertus Kalkstein",
-            "Info": "Make a unit's strength equal to this card's strength.",
+            "Info": "Deploy: Make a unit's strength equal to this card's strength.",
             "Flavor": "“在卡尔克斯坦临刑之际，他用魔法火焰在天空拼出一句话。我们宅心仁厚的国王陛下对此可不太高兴……”"
         },
         "70106": {
             "Name": "Endrega Eggs",
-            "Info": "Deploy: Spawn 2 base copies on the left.\n\nDeathwish: Spawn an Endrega Larva in this row.\n\nAfter 3 turns, at the end of your turn, destroy self.",
+            "Info": "Deploy: Spawn 1 base copies on the left.\n\nDeathwish: Spawn an Endrega Larva in this row.\n\nAfter 3 turns, at the end of your turn, destroy self.",
             "Flavor": "If you find some it's best to burn the entire forest down. Then run as far away as you can."
         },
         "70107": {
@@ -3097,8 +3102,8 @@
             "Flavor": "“Where I come from no one was afraid of the Big Bad Wolf or Baba Yaga. Instead, we had an Endrega nest in the shrubs beyond the village.”"
         },
         "70109": {
-            "Name": "DwarvenChariot",
-            "Info": "Select 2 units and move them to this row in the half court. After self movement, make a random unit in the row obtain 2 boost.",
+            "Name": "Dwarven Chariot",
+            "Info": "Select 2 units and move them to this unit row. When this unit moves, boost random unit in the same row by 2.",
             "Flavor": "“随你们怎么画，各位亲爱的矮人。但是我把话放在这里，它造不出来。”"
         },
         "130210": {
