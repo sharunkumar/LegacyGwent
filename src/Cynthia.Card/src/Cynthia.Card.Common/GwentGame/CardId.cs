@@ -549,6 +549,7 @@ namespace Cynthia.Card
         public const string EndregaLarva = "70107";
         public const string EndregaWarrior = "70108";
         public const string DwarvenChariot = "70109";
+        public const string Thaw = "70119";
         public const string MadCharge = "70050";
         public const string LivingArmor = "70062";
         public const string MagicLamp = "70091";
@@ -558,5 +559,17 @@ namespace Cynthia.Card
         public const string CongregationCleric = "70076";
         public const string FireswornZealot = "70077";
         public const string Damnation = "70078";
+        public const string Crotch = "70110";
+        public const string PalmerindeLaunfal = "70111";
+        public const string PrimitiveWildness = "70112";
+        public const string Keltullis = "70113";
+        public const string BowDryad = "70114";
+        public const string Amnesty = "70115";
+        public const string DeafeningSiren = "70116";
+        public const string Fauve = "70117";
+        public const string LyrianScytheman = "70118";
+        public const string AnCraiteWarlord = "70079";
+        public const string KnutTheCallous = "70080";
+        public const string DrummondPillager = "70081";
     }
 }

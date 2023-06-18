@@ -12,7 +12,7 @@ namespace Cynthia.Card
         public override async Task<int> CardPlayEffect(bool isSpying, bool isReveal)
         {
             //选一张场上的家族单位,不能是自己
-            var target = await Game.GetSelectPlaceCards(Card, 1, false, x => x.Is(Group.Copper, CardType.Unit, x => x.HasAnyCategorie(Categorie.ClanDrummond, Categorie.ClanTuirseach, Categorie.ClanDimun, Categorie.ClanTordarroch, Categorie.ClanHeymaey, Categorie.ClanAnCraite, Categorie.ClanBrokvar)), SelectModeType.MyRow);
+            var target = await Game.GetSelectPlaceCards(Card, 1, false, x => x.Is(null, CardType.Unit, x => x.HasAnyCategorie(Categorie.ClanDrummond, Categorie.ClanTuirseach, Categorie.ClanDimun, Categorie.ClanTordarroch, Categorie.ClanHeymaey, Categorie.ClanAnCraite, Categorie.ClanBrokvar)), SelectModeType.MyRow);
             if (target.Count() == 0)
             {
                 return 0;
@@ -27,7 +27,7 @@ namespace Cynthia.Card
                 var list = Game.GetPlaceCards(Card.PlayerIndex).FilterCards(filter: x => x.HasAnyCategorie(famcat) && x != Card);
                 foreach (var card in list)
                 {
-                    await card.Effect.Boost(2, Card);
+                    await card.Effect.Boost(1, Card);
                 }
             }
             return 0;
